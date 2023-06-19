@@ -1,9 +1,9 @@
 /**
- * SYST 17796 Project Base code.
- * Students can modify and extend to implement their game.
- * Add your name as an author and the date!
+ * every player has a hand of poker cards.
  */
 package ca.sheridancollege.project;
+
+import java.util.ArrayList;
 
 /**
  * A class that models each Player in the game. Players have an identifier,
@@ -11,10 +11,12 @@ package ca.sheridancollege.project;
  *
  * @author dancye
  * @author Paul Bonenfant Jan 2020
+ * @author Shuya Hu, Sichao Quan, Min Liu, Wanqin Liang
  */
 public abstract class Player {
 
     private String name; // the unique name for this player
+    private ArrayList<PokerCard> hand; // the cards this player holds
 
     /**
      * A constructor that allows you to set the player's unique ID
@@ -23,6 +25,7 @@ public abstract class Player {
      */
     public Player(String name) {
         this.name = name;
+        this.hand = new ArrayList<>(); // Initialize the hand
     }
 
     /**
@@ -30,6 +33,24 @@ public abstract class Player {
      */
     public String getName() {
         return name;
+    }
+
+    /**
+     * A method to set the player's hand of cards.
+     *
+     * @param hand the cards to set to this player's hand
+     */
+    public void setHand(ArrayList<PokerCard> hand) {
+        this.hand = hand;
+    }
+
+    /**
+     * A method to get the player's hand of cards.
+     *
+     * @return the cards in this player's hand
+     */
+    public ArrayList<PokerCard> getHand() {
+        return this.hand;
     }
 
     /**
