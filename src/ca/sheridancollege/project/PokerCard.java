@@ -1,5 +1,6 @@
 /**
  * @author Shuya Hu, Sichao Quan, Min Liu, Wanqin Liang
+ * @date June 19, 2023
  */
 
 package ca.sheridancollege.project;
@@ -24,12 +25,24 @@ public class PokerCard extends Card {
 
     // print the current pocker card, including the number and the pattern on it.
     @Override
-    public String toString() {
-        /**
-         * todo: implement more specific to String method.
-         * todo goal: Find a more readable and consistant way to display pocker card.
-         */
-
-        return value + "-" + suit;
+   public String toString() {
+    String value;
+    switch (this.value) {
+        case 11:
+            value = "J";
+            break;
+        case 12:
+            value = "Q";
+            break;
+        case 13:
+            value = "K";
+            break;
+        case 14:
+            value = "A";
+            break;
+        default:
+            value = String.valueOf(this.value);
+    }
+    return this.suit + value;
     }
 }

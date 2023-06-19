@@ -9,9 +9,8 @@ import java.util.Collections;
  * once. The group of cards has a maximum size attribute which is flexible for
  * reuse.
  *
- * @author dancye
- * @author Paul Bonenfant Jan 2020
  * @author Shuya Hu, Sichao Quan, Min Liu, Wanqin Liang
+ * @date June 19, 2023
  */
 public class GroupOfCards {
 
@@ -21,7 +20,13 @@ public class GroupOfCards {
 
     // Create Poker Cards 4*13
     public GroupOfCards() {
-        // todo: Implement group of cards to create pocker cards
+       cards = new ArrayList<>();
+         String[] suits = {"♠", "♥", "♦", "♣"};
+        for (String suit : suits) {
+            for (int i = 2; i <= 14; i++) {
+                cards.add(new PokerCard(i, suit));
+            }
+        }
     }
 
     public GroupOfCards(int size) {
@@ -57,9 +62,12 @@ public class GroupOfCards {
 
     // Deal Poker Cards to Players
     public ArrayList<PokerCard> deal(int numCards) {
-        // todo: implement the deal method.
+         ArrayList<PokerCard> dealtCards = new ArrayList<>();
+        for (int i = 0; i < numCards; i++) {
+            dealtCards.add(cards.remove(cards.size() - 1));
+        }
 
-        return new ArrayList<>();
+          return dealtCards;
     }
 
     // Check if this deck of cards is empty.

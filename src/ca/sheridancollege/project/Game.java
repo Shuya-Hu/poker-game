@@ -12,9 +12,8 @@ import java.util.ArrayList;
  * this class and instantiate the methods
  * given.
  *
- * @author dancye
- * @author Paul Bonenfant Jan 2020
  * @author Shuya Hu, Sichao Quan, Min Liu, Wanqin Liang
+ * @date June 19, 2023
  */
 public abstract class Game {
 

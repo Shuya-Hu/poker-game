@@ -9,9 +9,8 @@ import java.util.ArrayList;
  * A class that models each Player in the game. Players have an identifier,
  * which should be unique.
  *
- * @author dancye
- * @author Paul Bonenfant Jan 2020
  * @author Shuya Hu, Sichao Quan, Min Liu, Wanqin Liang
+ * @date June 19, 2023
  */
 public abstract class Player {
 
