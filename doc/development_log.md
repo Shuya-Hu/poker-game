@@ -32,7 +32,7 @@ Note:
 
 -   [x] Implement the basic class (Done by Shuya Hu)
 -   [x] Push updated code to Github
--   [ ] Code check by members.
+-   [x] Code check by members. (Confirmed by Shuya Hu)
 
 2023-06-19
 
