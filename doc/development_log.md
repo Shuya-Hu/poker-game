@@ -36,9 +36,9 @@ Note:
 
 2023-06-19
 
--   [ ] Implement concrete methods (Assigned to Sichao Quan)
--   [ ] Push updated code to Github
--   [ ] Code check by members.
+-   [x] Implement concrete methods (Assigned to Sichao Quan)
+-   [x] Push updated code to Github
+-   [x] Code check by members.
 
 2023-06-20
 
