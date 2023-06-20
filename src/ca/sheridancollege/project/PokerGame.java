@@ -1,6 +1,6 @@
 /**
  * @author Shuya Hu, Sichao Quan, Min Liu, Wanqin Liang
- * @date June 19, 2023
+ * @date June 20, 2023
 */
 
 package ca.sheridancollege.project;
@@ -43,74 +43,75 @@ public class PokerGame extends Game {
      * managing turns and determining the winner.
      */
     @Override
-    public void play() { 
-    Scanner scanner = new Scanner(System.in);
+    public void play() {
+        Scanner scanner = new Scanner(System.in);
 
-    // Firstly, print hands of players
-    for (Player player : getPlayers()) {
-        CardGamePlayer cardPlayer = (CardGamePlayer) player;
-        System.out.println("\n" + player.getName() + ", your current hand is:");
-    for (int i = 0; i < cardPlayer.getHand().size(); i++) {
-        String cardString = (i + 1) + ". " + cardPlayer.getHand().get(i);
-        System.out.printf("%-12s", cardString);
-        // Add a space line every 5 cards
-        if ((i + 1) % 5 == 0) {
-            System.out.println();
-    }
-        }
+        // Firstly, print hands of players
+        for (Player player : super.getPlayers()) {
+            CardGamePlayer cardPlayer = (CardGamePlayer) player;
+            System.out.println("Player" + cardPlayer.getId() + "score: " + cardPlayer.getScore());
 
-        // print the pile, let the player know what happened
-        System.out.println("\nCurrent game pile: " + pile);
+            System.out.println(
+                    "\n" + player.getName() + ", you current have " + cardPlayer.getHand().size() + "card(s)");
 
+            // print the pile, let the player know what happened
+            System.out.println("\nCurrent game pile: " + pile);
 
-        // ask player 1 to throw a card
-        while (true) {
-            try {
-                System.out.println("\n" + player.getName() + ", please input the number of the card you want to play:");
-                int cardIndex = Integer.parseInt(scanner.nextLine());
+            // ask player 1 to throw a card
+            while (true) {
+                try {
+                    System.out.println(
+                            "\n" + player.getName()
+                                    + ", please select a random number (less than your current amount of cards) you want to play:");
+                    int cardIndex = Integer.parseInt(scanner.nextLine());
 
-                PokerCard playedCard = cardPlayer.getHand().get(cardIndex - 1);
-                cardPlayer.getHand().remove(cardIndex - 1);
-                pile.add(playedCard);
+                    PokerCard playedCard = cardPlayer.getHand().get(cardIndex - 1);
+                    cardPlayer.getHand().remove(cardIndex - 1);
+                    pile.add(playedCard);
 
-                // annouce that player throw a card and print the pile
-                System.out.println("\n" + player.getName() + " played: " + playedCard);
-                System.out.println("\nCurrent game pile: " + pile);
+                    // annouce that player throw a card and print the pile
+                    // System.out.println("\n" + player.getName() + " played: " + playedCard);
+                    System.out.println("\nCurrent game pile: " + pile);
 
-                //compare with the newly thrown card value with the card values in the pile
-                for (int i = pile.size() - 2; i >= 0; i--) {
-                    if (pile.get(i).getValue() == playedCard.getValue()) {
-                        System.out.println("Match found with " + pile.get(i));
+                    // compare with the newly thrown card value with the card values in the pile
+                    for (int i = pile.size() - 2; i >= 0; i--) {
+                        if (pile.get(i).getValue() == playedCard.getValue()) {
+                            System.out.println("Match found with " + pile.get(i));
+                            System.out.println("You gained " + cardPlayer.getScore() + " scores");
 
-                        // Add the matching cards to the player's hand
-                        while (pile.size() > i) {
-                            cardPlayer.getHand().add(pile.remove(i));
+                            cardPlayer.setScore(pile.size() - 1 - i);
+                            // Add the matching cards to the player's hand
+                            while (pile.size() > i) {
+                                pile.remove(i);
+                            }
+                            // annouce the hand again
+                            System.out.println(
+                                    player.getName() + "'s hand now: " + cardPlayer.getHand().size() + " cards");
+                            break;
                         }
-                        // annouce the hand again
-                        System.out.println(player.getName() + "'s hand now: " + cardPlayer.getHand());
-                        break;
                     }
+                    break;
+
+                } catch (NumberFormatException | IndexOutOfBoundsException e) {
+                    System.out.println("\nInvalid input. Please try again.");
                 }
-                break;
-
-            } catch (NumberFormatException | IndexOutOfBoundsException e) {
-                System.out.println("\nInvalid input. Please try again.");
             }
-        }
 
-        System.out.println("\n----- End of " + player.getName() + "'s turn -----\n");
-    }
+            System.out.println("\n----- End of " + player.getName() + "'s turn -----\n");
         }
+    }
 
     @Override
     public void declareWinner() {
-    if (getPlayers().get(0).getHand().isEmpty()) {
-        System.out.println("!!!" + getPlayers().get(1).getName() + " wins!!!");
-    } else if (getPlayers().get(1).getHand().isEmpty()) {
-        System.out.println("!!!" + getPlayers().get(0).getName() + " wins!");
-    } else {
-        System.out.println("It's a draw!"); // This line may not be necessary as per your game rules.
-    }
+        if (((CardGamePlayer) (CardGamePlayer) getPlayers().get(0))
+                .getScore() > ((CardGamePlayer) (CardGamePlayer) getPlayers().get(1)).getScore()) {
+            System.out.println("!!!" + getPlayers().get(1).getName() + " wins!!!");
+        } else if (((CardGamePlayer) (CardGamePlayer) getPlayers().get(0))
+                .getScore() < ((CardGamePlayer) (CardGamePlayer) getPlayers().get(1)).getScore()) {
+            System.out.println("!!!" + getPlayers().get(0).getName() + " wins!");
+        } else {
+            System.out.println("It's a draw!"); // This line may not be necessary as per your game rules.
+        }
     }
 
 }

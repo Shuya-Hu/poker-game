@@ -36,15 +36,16 @@ Note:
 
 2023-06-19
 
--   [x] Implement concrete methods (Assigned to Sichao Quan)
+-   [x] Implement concrete methods (Done by Sichao Quan)
 -   [x] Push updated code to Github
 -   [x] Code check by members.
 
 2023-06-20
 
--   [ ] Discuss current game logic.
--   [ ] Debug the current code. (Assigned to Min Liu and Wanqin Liang).
--   [ ] Code check by members.
+-   [x] Discuss current game logic.
+-   [x] Change the current logic and implement new logic. (Done by Min Liu and Wanqin Liang).
+-   [x] Debug and test the current code.(Assign to Wanqin Liang).
+-   [x] Code check by members.
 
 2023-06-21
 
