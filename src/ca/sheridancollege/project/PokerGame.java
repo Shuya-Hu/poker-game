@@ -79,7 +79,7 @@ public class PokerGame extends Game {
                             System.out.println("Match found with " + pile.get(i));
                             System.out.println("You gained " + cardPlayer.getScore() + " scores");
 
-                            cardPlayer.setScore(pile.size() - 1 - i);
+                            cardPlayer.setScore(pile.size() - i);
                             // Add the matching cards to the player's hand
                             while (pile.size() > i) {
                                 pile.remove(i);
@@ -105,13 +105,15 @@ public class PokerGame extends Game {
     public void declareWinner() {
         if (((CardGamePlayer) (CardGamePlayer) getPlayers().get(0))
                 .getScore() > ((CardGamePlayer) (CardGamePlayer) getPlayers().get(1)).getScore()) {
-            System.out.println("!!!" + getPlayers().get(1).getName() + " wins!!!");
+            System.out.println("!!!" + getPlayers().get(0).getName() + " wins!!!");
         } else if (((CardGamePlayer) (CardGamePlayer) getPlayers().get(0))
                 .getScore() < ((CardGamePlayer) (CardGamePlayer) getPlayers().get(1)).getScore()) {
-            System.out.println("!!!" + getPlayers().get(0).getName() + " wins!");
+            System.out.println("!!!" + getPlayers().get(1).getName() + " wins!");
         } else {
             System.out.println("It's a draw!"); // This line may not be necessary as per your game rules.
         }
-    }
+    } 
+        }
 
-}
+
+

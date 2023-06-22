@@ -49,7 +49,9 @@ Note:
 
 2023-06-21
 
--   [ ] Test the current code. (Group Member).
+-   [x] Test the current code and fix bugs.(done by Wanqin Liang).
+-   [x] Update the document of this project.(done by Wanqin Liang).
+
 
 2023-06-22
 
