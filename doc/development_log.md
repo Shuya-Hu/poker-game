@@ -52,11 +52,14 @@ Note:
 -   [x] Test the current code and fix bugs.(done by Wanqin Liang).
 -   [x] Update the document of this project.(done by Wanqin Liang).
 
-
 2023-06-22
 
--   [ ] Test code and last modification (Assignment to Group Members)
+-   [x] Test code and last modification (Assignment to Group Members)
 
 2023-06-23
 
--   [ ] Add the documentation (Assignment to Wanqin Liang)
+-   [x] Add the documentation (Assignment to Wanqin Liang)
+
+2023-06-30
+
+-   [x] Last check of project.
