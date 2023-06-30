@@ -22,7 +22,7 @@ public abstract class Game {
 
     public Game(String name) {
         this.NAME = name;
-        players = new ArrayList();
+        players = new ArrayList<>();
     }
 
     /**
