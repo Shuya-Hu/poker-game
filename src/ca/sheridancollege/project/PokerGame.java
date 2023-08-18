@@ -4,6 +4,7 @@
 */
 
 package ca.sheridancollege.project;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -26,20 +27,32 @@ public class PokerGame extends Game {
         deck.shuffle();
     }
 
+    /**
+     *
+     * @return get one whole deck of cards for this specific round of game.
+     */
     public GroupOfCards getDeck() {
         return deck;
     }
 
+    /**
+     *
+     * @return return the deck of cards in one user's hand.
+     */
     public ArrayList<PokerCard> getHand() {
         return this.hand;
     }
 
+    /**
+     *
+     * @param hand the initial deck of cards that is assigned to one user.
+     */
     public void setHand(ArrayList<PokerCard> hand) {
         this.hand = hand;
     }
 
     /**
-     * This method manages the gameplay. It is responsible for dealing cards,
+     * This method manages the game play. It is responsible for dealing cards,
      * managing turns and determining the winner.
      */
     @Override
@@ -101,6 +114,10 @@ public class PokerGame extends Game {
         }
     }
 
+    /**
+     * This method decide whether this game is over and when it's over, which player
+     * is the winner.
+     */
     @Override
     public void declareWinner() {
         if (((CardGamePlayer) (CardGamePlayer) getPlayers().get(0))
@@ -112,8 +129,5 @@ public class PokerGame extends Game {
         } else {
             System.out.println("It's a draw!"); // This line may not be necessary as per your game rules.
         }
-    } 
-        }
-
-
-
+    }
+}
